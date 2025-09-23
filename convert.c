@@ -167,7 +167,7 @@ void to_sign_magnitude(int32_t n, char *out) {
     if (n >= 0) {
         positive_binary(n, out);
     } else {
-        // flip it minus one to prepare for div_convert using twos compliment
+        // flip it minus one to prepare for div_convert using twos complement
         n = ~(n-1);
         char temp[33];
         div_convert(n, 2, temp);
@@ -188,7 +188,7 @@ void to_ones_complement(int32_t n, char *out) {
         positive_binary(n, out);
     } else {
         // calling div_convert with n (a signed int) converts it to twos
-        // compliment, so subtract one
+        // complement, so subtract one
         div_convert(n-1, 2, out);
     }
 }
