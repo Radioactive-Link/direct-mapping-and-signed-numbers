@@ -63,7 +63,7 @@ int main() {
         } else {
             // as string
             strcpy(number_string, token);
-            strcpy(output_arg, number_string);
+            sprintf(output_arg, "\"%s\"", number_string);
         }
 
         char expected[256];
