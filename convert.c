@@ -169,17 +169,9 @@ void to_sign_magnitude(int32_t n, char *out) {
     } else {
         // flip it minus one to prepare for div_convert using twos complement
         n = ~(n-1);
-        char temp[33];
-        div_convert(n, 2, temp);
-
-        int len = strlen(temp);
+        positive_binary(n, out);
         // set the sign bit
         out[0] = '1';
-        // padding zeros
-        for (int i = 1; i < 32 - len; i++) out[i] = '0';
-        // put in the actual number
-        for (int i = 0; i < len; i++) out[(32-len)+i] = temp[i];
-        out[33] = '\0';
     }
 }
 
